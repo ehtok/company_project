@@ -1,16 +1,16 @@
 import DAO.EntityVacancyDAO;
 import DAO.implement.EntityVacancyDAOImpl;
-import Entity.Vacancy;
+import Entity.Technology;
 
-import java.util.List;
+import java.util.Set;
 
 public class App {
     public static void main(String[] args) {
-        EntityVacancyDAO dao = new EntityVacancyDAOImpl();
-        List<Vacancy> java_developer = dao.findVacancyByName("Developer");
-        for (Vacancy vacancy : java_developer
+        EntityVacancyDAO vacancyDAO = new EntityVacancyDAOImpl();
+        Set<Technology> allTechnologyInVacancy = vacancyDAO.findAllTechnologyInVacancy(1);
+        for (Technology t : allTechnologyInVacancy
         ) {
-            System.out.println(vacancy);
+            System.out.println(t);
         }
     }
 }

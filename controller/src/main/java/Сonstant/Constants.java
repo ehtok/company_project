@@ -22,6 +22,7 @@ public class Constants {
     public static final String ATT_COMPANY = "company";
     public static final String COMPANY_ERROR_JSP = "companyError.jsp";
 
+
     //VacancyConstants******************************************************************>>
 
     public static final String VACANCY_NAME = "vacancyName";
@@ -40,6 +41,7 @@ public class Constants {
     public static final String ID_VACANCY = "idVacancy";
     public static final String ATT_VACANCIES_BY_NAME = "vacanciesByName";
     public static final String SEARCH_VACANCY_JSP = "searchVacancy.jsp";
+
 
     //TechnologyConstants******************************************************************>>
     public static final String TECHNOLOGY_NAME = "technologyName";

@@ -56,6 +56,7 @@ public class VacancyConverter implements VacancyConverterI {
                 .salary(vacancyDTO.getSalary())
                 .status(vacancyDTO.getStatus())
                 .location(vacancyDTO.getLocation())
+                .company(vacancyDTO.getCompany())
                 .build();
         return vacancy;
     }

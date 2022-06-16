@@ -21,14 +21,19 @@
         <li><a href="technology">Технологии</a></li>
     </ul>
 </footer>
-<center>
-    <h2>Ошибка</h2>
+<div>
+    <center>
+        <h2>Ошибка</h2>
 
-    <h2>Невозможно удалить активную технологию!</h2>
-
-    <form action="technology">
-        <button>Назад</button>
-    </form>
-</center>
+        <h2>Невозможно удалить активную технологию!</h2>
+    </center>
+</div>
+<div>
+    <center>
+        <form action="technology">
+            <button>Назад</button>
+        </form>
+    </center>
+</div>
 </body>
 </html>

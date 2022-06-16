@@ -15,7 +15,10 @@ public interface VacancyService {
     void updateVacancy(int id, String name, String time, String experience, String location, String englishLevel, String professionLevel,
                        String salary, String status);
 
+
     void addTechnologyToVacancy(int idVacancy, int idTechnology);
 
     List<VacancyDTO> findVacancyByName(String name);
+
+
 }

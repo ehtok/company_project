@@ -26,63 +26,77 @@
         <li><a href="technology">Технологии</a></li>
     </ul>
 </footer>
-<center>
-    <h2>Компании</h2>
-    <table>
-        <tr>
-            <th>Название компании</th>
-            <th>Описание</th>
-            <th>Размер компании</th>
-            <th>Тип компании</th>
-            <th>Действие</th>
-            <th></th>
-        </tr>
-        <c:forEach var="company" items="${companies}">
+<div>
+    <center>
+        <h2>Компании</h2>
+        <table>
             <tr>
-                <td>${company.name}</td>
-                <td>${company.description}</td>
-                <td>${company.companySize}</td>
-                <td>${company.companyType}</td>
-                <td>
-                    <form name="editCompany" method="post" action="companyForm.jsp">
-                        <input name="id" type="hidden" value="${company.id}">
-                        <input name="companyName" type="hidden" value="${company.name}">
-                        <input name="companySize" type="hidden" value="${company.companySize}">
-                        <input name="companyType" type="hidden" value="${company.companyType}">
-                        <input name="companyDescription" type="hidden" value="${company.description}">
-                        <button>Изменить</button>
-                    </form>
-
-                    <form name="deleteCompany" method="post" action="company">
-                        <input name="id" type="hidden" value="${company.id}">
-                        <input name="action" type="hidden" value="delete">
-                        <button>Удалить</button>
-                    </form>
-                </td>
-                <td>
-                    <form name="addVacancyToCompany" action="vacancyForm.jsp">
-                        <input name="idCompany" type="hidden" value="${company.id}">
-                        <input name="companyName" type="hidden" value="${company.name}">
-                        <button>Добавить вакансию</button>
-                    </form>
-
-                    <form name="addCourseToCompany" action="courseForm.jsp">
-                        <input name="idCompany" type="hidden" value="${company.id}">
-                        <input name="companyName" type="hidden" value="${company.name}">
-                        <button>Добавить курс</button>
-                    </form>
-                </td>
+                <th>Название компании</th>
+                <th>Описание</th>
+                <th>Размер компании</th>
+                <th>Тип компании</th>
+                <th>Действие</th>
+                <th></th>
             </tr>
-        </c:forEach>
-    </table>
+            <c:forEach var="company" items="${companies}">
+                <tr>
+                    <td>${company.name}</td>
+                    <td>${company.description}</td>
+                    <td>${company.companySize}</td>
+                    <td>${company.companyType}</td>
+                    <td>
+                        <form name="editCompany" method="post" action="companyForm.jsp">
+                            <input name="id" type="hidden" value="${company.id}">
+                            <input name="companyName" type="hidden" value="${company.name}">
+                            <input name="companySize" type="hidden" value="${company.companySize}">
+                            <input name="companyType" type="hidden" value="${company.companyType}">
+                            <input name="companyDescription" type="hidden" value="${company.description}">
+                            <button>Изменить</button>
+                        </form>
 
-    <form action="companyForm.jsp">
-        <button>Создать компанию</button>
-    </form>
-    <form action="searchCompany.jsp">
-        <button>Найти компанию</button>
-    </form>
+                        <form name="deleteCompany" method="post" action="company">
+                            <input name="id" type="hidden" value="${company.id}">
+                            <input name="action" type="hidden" value="delete">
+                            <button>Удалить</button>
+                        </form>
+                        <form name="companyInfo" action="companyInfo.jsp">
+                            <input name="companyName" type="hidden" value="${company.name}">
+                            <input name="companySize" type="hidden" value="${company.companySize}">
+                            <input name="companyType" type="hidden" value="${company.companyType}">
+                            <input name="companyDescription" type="hidden" value="${company.description}">
+                            <input name="companyVacancy" type="hidden" value="${company.vacancy}">
+                            <input name="companyCourse" type="hidden" value="${company.course}">
+                            <button>Инфо</button>
+                        </form>
+                    </td>
+                    <td>
+                        <form name="addVacancyToCompany" action="vacancyForm.jsp">
+                            <input name="idCompany" type="hidden" value="${company.id}">
+                            <input name="companyName" type="hidden" value="${company.name}">
+                            <button>Добавить вакансию</button>
+                        </form>
 
-</center>
+                        <form name="addCourseToCompany" action="courseForm.jsp">
+                            <input name="idCompany" type="hidden" value="${company.id}">
+                            <input name="companyName" type="hidden" value="${company.name}">
+                            <button>Добавить курс</button>
+                        </form>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+    </center>
+</div>
+<div>
+    <center>
+        <form action="companyForm.jsp">
+            <button>Создать компанию</button>
+        </form>
+        <form action="searchCompany.jsp">
+            <button>Найти компанию</button>
+        </form>
+    </center>
+</div>
+
 </body>
 </html>

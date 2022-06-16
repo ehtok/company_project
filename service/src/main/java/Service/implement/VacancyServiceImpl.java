@@ -3,7 +3,9 @@ package Service.implement;
 
 import Converter.VacancyConverter;
 import Converter.VacancyConverterI;
+import DAO.EntityCompanyDAO;
 import DAO.EntityTechnologyDAO;
+import DAO.implement.EntityCompanyDAOImpl;
 import DAO.implement.EntityTechnologyDAOImpl;
 import DAO.implement.EntityVacancyDAOImpl;
 import DTO.VacancyDTO;
@@ -18,6 +20,7 @@ public class VacancyServiceImpl implements VacancyService {
     private EntityVacancyDAOImpl vacancyDAO = new EntityVacancyDAOImpl();
     private VacancyConverterI vacancyConverter = new VacancyConverter();
     private EntityTechnologyDAO technologyDAO = new EntityTechnologyDAOImpl();
+    private EntityCompanyDAO companyDAO = new EntityCompanyDAOImpl();
 
     @Override
     public void saveVacancy(String name, String time, String experience, String location, String englishLevel, String professionLevel,
@@ -52,22 +55,21 @@ public class VacancyServiceImpl implements VacancyService {
     }
 
     @Override
-    public void updateVacancy(int id, String name, String time, String experience, String location, String englishLevel, String professionLevel, String salary, String status) {
-        VacancyDTO vacancyDTO = VacancyDTO.builder()
-                .id(id)
-                .name(name)
-                .workingTime(time)
-                .experience(experience)
-                .location(location)
-                .englishLevel(englishLevel)
-                .professionLevel(professionLevel)
-                .salary(salary)
-                .status(status)
-                .build();
-        Vacancy vacancy = vacancyConverter.toEntity(vacancyDTO);
+    public void updateVacancy(int id, String name, String time, String experience, String location,
+                              String englishLevel, String professionLevel, String salary, String status) {
+        Vacancy vacancy = vacancyDAO.findById(id);
+        vacancy.setName(name);
+        vacancy.setWorkingTime(time);
+        vacancy.setExperience(experience);
+        vacancy.setLocation(location);
+        vacancy.setEnglishLevel(englishLevel);
+        vacancy.setProfessionLevel(professionLevel);
+        vacancy.setSalary(salary);
+        vacancy.setStatus(status);
         vacancyDAO.update(vacancy);
         vacancyDAO.closeDAO();
     }
+
 
     @Override
     public void addTechnologyToVacancy(int idVacancy, int idTechnology) {

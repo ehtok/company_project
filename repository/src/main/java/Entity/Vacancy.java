@@ -56,8 +56,6 @@ public class Vacancy implements Serializable {
     private Set<Technology> technologies = new HashSet<>();
 
 
-
-
     @Override
     public String toString() {
         return "Vacancy " +

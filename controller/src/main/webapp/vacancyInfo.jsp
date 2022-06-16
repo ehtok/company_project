@@ -42,11 +42,13 @@
     <br/>
     <td>Компания: ${param.vacancyCompany}</td>
     <br/>
-    <td>Стек тезнологии: ${param.vacancyTechnology}</td>
+    <td>Стек технологии: ${param.vacancyTechnology}</td>
     <br/>
 </div>
+<div>
 <form action="vacancy">
     <button>Назад</button>
 </form>
+</div>
 </body>
 </html>

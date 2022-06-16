@@ -1,15 +1,18 @@
 <%--
   Created by IntelliJ IDEA.
   User: akyna
-  Date: 13.06.2022
-  Time: 16:09
+  Date: 16.06.2022
+  Time: 13:18
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ page isELIgnored="false" %>
 <link href="css/top.css" rel="stylesheet">
 <html>
 <head>
-    <title>Ошибка</title>
+    <title>Инфо о компании ${param.companyName}</title>
 </head>
 <body>
 <footer>
@@ -21,14 +24,21 @@
         <li><a href="technology">Технологии</a></li>
     </ul>
 </footer>
+<h2>${param.companyName}</h2>
 <div>
-    <center>
-        <h2>Упс!</h2>
-        <h2>Компания не найдена! Введите корректное название!</h2>
-    </center>
+    <td>Размер компании: ${param.companySize}</td>
+    <br/>
+    <td>Тип компании: ${param.companyType}</td>
+    <br/>
+    <td>Вакансии: ${param.companyVacancy}</td>
+    <br/>
+    <td>Курсы: ${param.companyCourse}</td>
+    <br/>
+    <td>О компании: ${param.companyDescription}</td>
+    <br/>
 </div>
 <div>
-    <form action="searchCompany.jsp">
+    <form action="company">
         <button>Назад</button>
     </form>
 </div>

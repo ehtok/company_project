@@ -25,50 +25,56 @@
         <li><a href="technology">Технологии</a></li>
     </ul>
 </footer>
-<center>
-    <h2>Курсы</h2>
-    <table>
-        <tr>
-            <th>Название курса</th>
-            <th>Дата старта</th>
-            <th>Дата окончания</th>
-            <th>Место проведения</th>
-            <th>Описание</th>
-            <th>Компания</th>
-            <th>Действие</th>
-        </tr>
-        <c:forEach var="course" items="${courses}">
+<div>
+    <center>
+        <h2>Курсы</h2>
+        <table>
             <tr>
-                <td>${course.name}</td>
-                <td>${course.startDate}</td>
-                <td>${course.finishDate}</td>
-                <td>${course.location}</td>
-                <td>${course.description}</td>
-                <td>${course.company.name}</td>
-                <td>
-                    <form name="editCourse" method="post" action="courseForm.jsp">
-                        <input name="id" type="hidden" value="${course.id}">
-                        <input name="courseName" type="hidden" value="${course.name}">
-                        <input name="startDate" type="hidden" value="${course.startDate}">
-                        <input name="finishDate" type="hidden" value="${course.finishDate}">
-                        <input name="location" type="hidden" value="${course.location}">
-                        <input name="courseDescription" type="hidden" value="${course.description}">
-                        <button>Изменить</button>
-                    </form>
-                    <form name="deleteCourse" method="post" action="course">
-                        <input name="id" type="hidden" value="${course.id}">
-                        <input name="action" type="hidden" value="delete">
-                        <button>Удалить</button>
-                    </form>
-                </td>
+                <th>Название курса</th>
+                <th>Дата старта</th>
+                <th>Дата окончания</th>
+                <th>Место проведения</th>
+                <th>Описание</th>
+                <th>Компания</th>
+                <th>Действие</th>
             </tr>
-        </c:forEach>
-    </table>
+            <c:forEach var="course" items="${courses}">
+                <tr>
+                    <td>${course.name}</td>
+                    <td>${course.startDate}</td>
+                    <td>${course.finishDate}</td>
+                    <td>${course.location}</td>
+                    <td>${course.description}</td>
+                    <td>${course.company.name}</td>
+                    <td>
+                        <form name="editCourse" method="post" action="courseForm.jsp">
+                            <input name="id" type="hidden" value="${course.id}">
+                            <input name="courseName" type="hidden" value="${course.name}">
+                            <input name="startDate" type="hidden" value="${course.startDate}">
+                            <input name="finishDate" type="hidden" value="${course.finishDate}">
+                            <input name="location" type="hidden" value="${course.location}">
+                            <input name="courseDescription" type="hidden" value="${course.description}">
+                            <button>Изменить</button>
+                        </form>
+                        <form name="deleteCourse" method="post" action="course">
+                            <input name="id" type="hidden" value="${course.id}">
+                            <input name="action" type="hidden" value="delete">
+                            <button>Удалить</button>
+                        </form>
+                    </td>
+                </tr>
+            </c:forEach>
+        </table>
+    </center>
+</div>
+<div>
+    <center>
+        <form action="courseForm.jsp">
+            <button>Создать курс</button>
+        </form>
+    </center>
+</div>
 
-    <form action="courseForm.jsp">
-        <button>Создать курс</button>
-    </form>
-</center>
 
 </body>
 </html>

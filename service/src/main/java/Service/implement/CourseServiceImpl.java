@@ -2,7 +2,9 @@ package Service.implement;
 
 import Converter.CourseConverter;
 import Converter.CourseConverterI;
+import DAO.EntityCompanyDAO;
 import DAO.EntityCourseDAO;
+import DAO.implement.EntityCompanyDAOImpl;
 import DAO.implement.EntityCourseDAOImpl;
 import DTO.CourseDTO;
 import Entity.Course;
@@ -14,6 +16,7 @@ import java.util.List;
 public class CourseServiceImpl implements CourseService {
 
     private EntityCourseDAO courseDAO = new EntityCourseDAOImpl();
+    private EntityCompanyDAO companyDAO = new EntityCompanyDAOImpl();
     private CourseConverterI converter = new CourseConverter();
 
     @Override
@@ -39,19 +42,18 @@ public class CourseServiceImpl implements CourseService {
     }
 
     @Override
-    public void updateCourse(int id, String name, LocalDate start, LocalDate finish, String description, String location) {
-        CourseDTO courseDTO = CourseDTO.builder()
-                .id(id)
-                .name(name)
-                .startDate(start)
-                .finishDate(finish)
-                .description(description)
-                .location(location)
-                .build();
-        Course course = converter.toEntity(courseDTO);
+    public void updateCourse
+            (int id, String name, LocalDate start, LocalDate finish, String description, String location) {
+        Course course = courseDAO.findById(id);
+        course.setName(name);
+        course.setDateStart(start);
+        course.setDateFinish(finish);
+        course.setDescription(description);
+        course.setLocation(location);
         courseDAO.update(course);
         courseDAO.closeDAO();
     }
+
 
     @Override
     public void deleteCourse(int id) {

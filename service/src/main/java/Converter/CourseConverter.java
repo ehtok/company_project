@@ -44,6 +44,7 @@ public class CourseConverter implements CourseConverterI {
                 .dateFinish(courseDTO.getFinishDate())
                 .description(courseDTO.getDescription())
                 .location(courseDTO.getLocation())
+                .company(courseDTO.getCompany())
                 .build();
         return course;
     }

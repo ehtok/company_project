@@ -19,10 +19,6 @@ import static Сonstant.Constants.*;
 @WebServlet(name = "VacancyServlet", value = "/vacancy")
 public class VacancyServlet extends HttpServlet {
 
-
-
-
-
     private VacancyService vacancyService = new VacancyServiceImpl();
 
     @Override
@@ -44,6 +40,7 @@ public class VacancyServlet extends HttpServlet {
             case DELETE -> deleteVacancy(req, resp);
             case ADD_TECHNOLOGY -> addTechnologyToVacancy(req, resp);
             case SEARCH_VACANCY -> searchVacancyByName(req, resp);
+
         }
 
     }
@@ -72,7 +69,8 @@ public class VacancyServlet extends HttpServlet {
         String location = req.getParameter(VACANCY_LOCATION);
         String salary = req.getParameter(VACANCY_SALARY);
         String status = req.getParameter(VACANCY_STATUS);
-        vacancyService.updateVacancy(id, name, time, experience, location, englishLevel, professionalLevel, salary, status);
+        vacancyService.updateVacancy
+                (id, name, time, experience, location, englishLevel, professionalLevel, salary, status);
         resp.sendRedirect(URL_VACANCY);
     }
 

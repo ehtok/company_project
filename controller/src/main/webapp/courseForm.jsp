@@ -26,78 +26,78 @@
         <li><a href="technology">Технологии</a></li>
     </ul>
 </footer>
-<center>
-    <c:choose>
-        <c:when test="${not empty param.idCompany}">
-            <h2>Добавить курс ${param.companyName} компании</h2>
-            <form name="addCourseToCompany" method="post" action="company" autocomplete="off">
-                <input name="idCompany" type="hidden" value="${param.idCompany}">
-                Название курса: <label>
-                <input name="courseName" type="text" required aria-placeholder="Название курса">
-            </label><br/>
-                Дата старта: <label>
-                <input name="startDate" type="date">
-            </label><br/>
-                Дата окончания: <label>
-                <input name="finishDate" type="date">
-            </label><br/>
-                Место проведения: <label>
-                <input name="location" type="text" required aria-placeholder="Место проведения">
-            </label><br/>
-                Описание курса: <label>
-                <textarea name="courseDescription" required></textarea>
-            </label><br/>
-                <input name="action" type="hidden" value="addCourse">
-                <button>Создать</button>
-            </form>
-        </c:when>
-        <c:when test="${empty param.id}">
-            <h2>Создание Курса</h2>
-            <form name="addCourse" method="post" action="course" autocomplete="off">
-                Название курса: <label>
-                <input name="courseName" type="text" required aria-placeholder="Название курса">
-            </label><br/>
-                Дата старта: <label>
-                <input name="startDate" type="date">
-            </label><br/>
-                Дата окончания: <label>
-                <input name="finishDate" type="date">
-            </label><br/>
-                Место проведения: <label>
-                <input name="location" type="text" required aria-placeholder="Место проведения">
-            </label><br/>
-                Описание курса: <label>
-                <textarea name="courseDescription" required></textarea>
-            </label><br/>
-                <input name="action" type="hidden" value="add">
-                <button>Создать</button>
-            </form>
-        </c:when>
-
-        <c:when test="${not empty param.id}">
-            <form name="editCourse" method="post" action="course" autocomplete="off">
-                <input name="id" type="hidden" value="${param.id}">
-                Название курса: <label>
-                <input name="courseName" type="text" value="${param.courseName}">
-            </label><br/>
-                Дата старта: <label>
-                <input name="startDate" type="date" value="${param.startDate}">
-            </label><br/>
-                Дата окончания: <label>
-                <input name="finishDate" type="date" value="${param.finishDate}">
-            </label><br/>
-                Место проведения: <label>
-                <input name="location" type="text" value="${param.location}">
-            </label><br/>
-                Описание курса: <label>
-                <textarea name="courseDescription">${param.courseDescription}</textarea>
-            </label><br/>
-                <input name="action" type="hidden" value="update">
-                <button>Обновить</button>
-            </form>
-        </c:when>
-    </c:choose>
-</center>
-
+<div>
+    <center>
+        <c:choose>
+            <c:when test="${not empty param.idCompany}">
+                <h2>Добавить курс ${param.companyName} компании</h2>
+                <form name="addCourseToCompany" method="post" action="company" autocomplete="off">
+                    <input name="idCompany" type="hidden" value="${param.idCompany}">
+                    Название курса: <label>
+                    <input name="courseName" type="text" required aria-placeholder="Название курса">
+                </label><br/>
+                    Дата старта: <label>
+                    <input name="startDate" type="date">
+                </label><br/>
+                    Дата окончания: <label>
+                    <input name="finishDate" type="date">
+                </label><br/>
+                    Место проведения: <label>
+                    <input name="location" type="text" required aria-placeholder="Место проведения">
+                </label><br/>
+                    Описание курса: <label>
+                    <textarea name="courseDescription" required></textarea>
+                </label><br/>
+                    <input name="action" type="hidden" value="addCourse">
+                    <button>Создать</button>
+                </form>
+            </c:when>
+            <c:when test="${empty param.id}">
+                <h2>Создание Курса</h2>
+                <form name="addCourse" method="post" action="course" autocomplete="off">
+                    Название курса: <label>
+                    <input name="courseName" type="text" required aria-placeholder="Название курса">
+                </label><br/>
+                    Дата старта: <label>
+                    <input name="startDate" type="date">
+                </label><br/>
+                    Дата окончания: <label>
+                    <input name="finishDate" type="date">
+                </label><br/>
+                    Место проведения: <label>
+                    <input name="location" type="text" required aria-placeholder="Место проведения">
+                </label><br/>
+                    Описание курса: <label>
+                    <textarea name="courseDescription" required></textarea>
+                </label><br/>
+                    <input name="action" type="hidden" value="add">
+                    <button>Создать</button>
+                </form>
+            </c:when>
+            <c:when test="${not empty param.id}">
+                <form name="editCourse" method="post" action="course" autocomplete="off">
+                    <input name="id" type="hidden" value="${param.id}">
+                    Название курса: <label>
+                    <input name="courseName" type="text" value="${param.courseName}">
+                </label><br/>
+                    Дата старта: <label>
+                    <input name="startDate" type="date" value="${param.startDate}">
+                </label><br/>
+                    Дата окончания: <label>
+                    <input name="finishDate" type="date" value="${param.finishDate}">
+                </label><br/>
+                    Место проведения: <label>
+                    <input name="location" type="text" value="${param.location}">
+                </label><br/>
+                    Описание курса: <label>
+                    <textarea name="courseDescription">${param.courseDescription}</textarea>
+                </label><br/>
+                    <input name="action" type="hidden" value="update">
+                    <button>Обновить</button>
+                </form>
+            </c:when>
+        </c:choose>
+    </center>
+</div>
 </body>
 </html>

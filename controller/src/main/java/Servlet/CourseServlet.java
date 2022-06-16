@@ -62,10 +62,12 @@ public class CourseServlet extends HttpServlet {
         resp.sendRedirect(URL_COURSE);
     }
 
+
     private void deleteCourse(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         Integer id = Integer.valueOf(req.getParameter(ID));
         courseService.deleteCourse(id);
         resp.sendRedirect(URL_COURSE);
     }
+
 
 }
